@@ -89,8 +89,8 @@ workflows:
   backend-cd-workflow:
     jobs:
       - release
-      - build_and_deploy
-        filters:
-          branches:
-            only:
-              - main
+      - build_and_deploy:
+          filters:
+            branches:
+              only:
+                - main
