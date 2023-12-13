@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "lint": "npm run lint --workspaces",
-    "release": "semantic-release"
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.3.2",

@@ -63,7 +63,7 @@ jobs:
           command: "npm install"
       - run:
           name: "release"
-          command: "npm run semantic-release || true"
+          command: "npm run semantic-release"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
