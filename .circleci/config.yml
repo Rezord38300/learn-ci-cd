@@ -21,6 +21,17 @@ jobs:
           name: "Backend lint"
           working_directory: "backend/"
           command: "npm run lint-check"
+  backend-type-check:
+    docker:
+      - image: cimg/node:lts
+    steps:
+      - checkout
+      - run:
+          name: "Npm install"
+          command: "npm install"
+          working_directory: "backend/"
+          command: "npm run db-install"
+          command: "npm run type-check"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -28,3 +39,4 @@ workflows:
   backend-lint-workflow:
     jobs:
       - backend-lint
+      - backend-type-check
