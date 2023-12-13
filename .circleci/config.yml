@@ -71,11 +71,9 @@ jobs:
       - checkout
       - run:
           name: "install backend"
-          working_directory: "backend/"
           command: "npm run build"
       - run:
           name: "install frontend"
-          working_directory: "frontend/"
           command: "npm run build"
 
 # Orchestrate jobs using workflows
