@@ -64,6 +64,19 @@ jobs:
       - run:
           name: "semantic-release"
           command: "npm run semantic-release"
+  build_and_deploy:
+    docker:
+      - image: cimg/node:lts
+    steps:
+      - checkout
+      - run:
+          name: "install backend"
+          working_directory: "backend/"
+          command: "npm run build"
+      - run:
+          name: "install frontend"
+          working_directory: "frontend/"
+          command: "npm run build"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -76,3 +89,8 @@ workflows:
   backend-cd-workflow:
     jobs:
       - release
+      - build_and_deploy:
+          filters:
+            branches:
+              only:
+                - main
