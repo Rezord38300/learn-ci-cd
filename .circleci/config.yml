@@ -62,7 +62,7 @@ jobs:
           name: "install"
           command: "npm install"
       - run:
-          name: "release"
+          name: "semantic-release"
           command: "npm run semantic-release"
 
 # Orchestrate jobs using workflows
