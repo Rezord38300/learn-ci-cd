@@ -73,6 +73,10 @@ jobs:
           name: "install"
           command: "npm install"
       - run:
+          name: "Npm db-install"
+          working_directory: "backend/"
+          command: "npm run db-install"
+      - run:
           name: "install backend"
           working_directory: "backend/"
           command: "npm run build"
