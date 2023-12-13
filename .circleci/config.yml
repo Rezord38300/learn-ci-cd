@@ -25,6 +25,6 @@ jobs:
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
-  say-hello-workflow:
+  backend-lint-workflow:
     jobs:
       - backend-lint
