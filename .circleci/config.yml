@@ -53,6 +53,17 @@ jobs:
           name: "Npm unit-tests"
           working_directory: "backend/"
           command: "npm run unit-tests"
+  release:
+    docker:
+      - image: 'circleci/node:latest'
+    steps:
+      - checkout
+      - run:
+        name: install
+        command: npm install
+      - run:
+        name: release
+        command: npm run semantic-release || true
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -62,3 +73,6 @@ workflows:
       - backend-lint
       - backend-type-check
       - backend-unit-tests
+  backend-cd-workflow:
+    jobs:
+      - release
